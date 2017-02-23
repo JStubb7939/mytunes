@@ -22,6 +22,12 @@
     <script>
       $(function() {
         // set up model objects
+        $.ajax({
+            url: 'http://parse.hrr.hackreactor.com/mytunes/classes/songs',
+            type: 'GET',
+            success: function(data) { var songData = []; console.dir(data); }
+        });
+
         var library = new Songs(songData);
         var app = new AppModel({library: library});
 
