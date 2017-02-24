@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
   <body>
     <!-- Scripts may be placed anywhere on a page. But FYI, they block rendering of elements
      below them until after the scripts load-->
     <script src="bower_components/jquery/jquery.min.js"></script>
     <script src="bower_components/underscore/underscore.js"></script>
     <script src="bower_components/backbone/backbone.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
 
-<!--     <script src="data/data.js"></script>
- -->
     <script src="models/SongModel.js"></script>
     <script src="collections/Songs.js"></script>
     <script src="collections/SongQueue.js"></script>
@@ -22,6 +28,24 @@
     <script src="views/AppView.js"></script>
     <script src="env/config.js"></script>
 
+
+    <div class="site-wrapper">
+
+      <div class="site-wrapper-inner">
+
+        <div class="cover-container">
+
+          <div class="inner cover songLibrary well">
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
     <script>
       $(function() {
         // set up model objects
@@ -34,7 +58,20 @@
         var appView = new AppView({model: app});
 
         // put the view onto the screen
-        $('body').append(appView.render());
+        $('.songLibrary').append(appView.render());
+
+        $('.row header').hover(function(){
+            console.log('over the row')
+        })
+
+        $('.row song').hover(function(){
+            console.log('over the row song')
+        })
+
+        $('.row').hover(function() {
+            console.log($(this));
+        }, console.log('out'));
+
       });
     </script>
   </body>

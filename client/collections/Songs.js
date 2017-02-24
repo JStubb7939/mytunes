@@ -5,7 +5,6 @@ var Songs = Backbone.Collection.extend({
 
   url: 'http://parse.hrr.hackreactor.com/mytunes/classes/songs',
 
-
   initialize: function() {
     this.fetch();
   },
